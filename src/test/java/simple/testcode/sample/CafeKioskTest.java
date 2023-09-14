@@ -1,5 +1,6 @@
 package simple.testcode.sample;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import simple.testcode.sample.beverage.Americano;
@@ -74,5 +75,44 @@ class CafeKioskTest {
         // then
         assertThat(cafeKiosk.getBeverages().size()).isEqualTo(0);
         assertThat(cafeKiosk.getBeverages()).isEmpty();
+    }
+
+    // [해피케이스]
+    @DisplayName("음료를 여러 잔 추가할 수 있다.")
+    @Test
+    void addSeveralBeverages() {
+        // given
+        cafeKiosk = new CafeKiosk();
+        Americano americano = new Americano();
+        Latte latte = new Latte();
+
+
+        // when
+        cafeKiosk.add(americano, 2);
+        cafeKiosk.add(latte, 1);
+
+
+        // then
+        assertThat(cafeKiosk.getBeverages().get(0)).isEqualTo(americano);
+        assertThat(cafeKiosk.getBeverages().get(1)).isEqualTo(americano);
+        assertThat(cafeKiosk.getBeverages().get(2)).isEqualTo(latte);
+    }
+
+    // [예외케이스][경게값]
+    @DisplayName("[예외 case] 음료를 1잔 미만으로 추가하면 예외가 발생한다.")
+    @Test
+    void addZeroBeverages() {
+        // given
+        cafeKiosk = new CafeKiosk();
+        Americano americano = new Americano();
+
+
+        // when && // then (경계값 테스트)
+        Assertions.assertThatThrownBy(() -> cafeKiosk.add(americano, 0))
+                .isInstanceOf(IllegalArgumentException.class);
+
+        Assertions.assertThatThrownBy(() -> cafeKiosk.add(americano, 0))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("음료는 1잔 이상 주문 할 수 있음.");
     }
 }
