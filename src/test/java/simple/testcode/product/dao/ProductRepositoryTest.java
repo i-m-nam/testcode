@@ -1,6 +1,7 @@
 package simple.testcode.product.dao;
 
 import org.assertj.core.groups.Tuple;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,18 @@ import static simple.testcode.product.domain.ProductSellingStatus.*;
 
 @SpringBootTest
 // 테스트에서 사용될 떈, 각 테스트를 실행 할 때마다 트랜잭션을 시작하고 끝나면 트랜잭션을 강제로 롤백시킴
-@Transactional
+// 사용 주의
+// @Transactional
 class ProductRepositoryTest {
 
     @Autowired
     ProductRepository productRepository;
+
+    @AfterEach
+    void tearDown() {
+        // repo 삭제 순서 유의
+        productRepository.deleteAllInBatch();
+    }
 
     @DisplayName("3_1_1_원하는 판매상태를 가진 상품들을 조회한다.")
     @Test
