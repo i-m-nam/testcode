@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 import simple.testcode.product.domain.ProductEntity;
 
 import java.util.List;
@@ -14,6 +15,8 @@ import static simple.testcode.product.domain.ProductSellingStatus.*;
 
 
 @SpringBootTest
+// 테스트에서 사용될 떈, 각 테스트를 실행 할 때마다 트랜잭션을 시작하고 끝나면 트랜잭션을 강제로 롤백시킴
+@Transactional
 class ProductRepositoryTest {
 
     @Autowired
