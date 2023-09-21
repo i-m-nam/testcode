@@ -1,0 +1,41 @@
+2023-09-21 01:44:01.762 DEBUG 16776 --- [           main] org.hibernate.SQL                        :
+    insert
+    into
+        product
+        (id, name, price, product_number, selling_status)
+    values
+        (default, ?, ?, ?, ?)
+2023-09-21 01:44:01.766 TRACE 16776 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [아메리카노]
+2023-09-21 01:44:01.767 TRACE 16776 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [4000]
+2023-09-21 01:44:01.767 TRACE 16776 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [000]
+2023-09-21 01:44:01.767 TRACE 16776 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [SELLING]
+2023-09-21 01:44:01.778 DEBUG 16776 --- [           main] org.hibernate.SQL                        :
+    insert
+    into
+        product
+        (id, name, price, product_number, selling_status)
+    values
+        (default, ?, ?, ?, ?)
+2023-09-21 01:44:01.779 TRACE 16776 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [라뗴]
+2023-09-21 01:44:01.779 TRACE 16776 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1000]
+2023-09-21 01:44:01.779 TRACE 16776 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [001]
+2023-09-21 01:44:01.779 TRACE 16776 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [SELLING]
+2023-09-21 01:44:01.791 DEBUG 16776 --- [           main] org.hibernate.SQL                        :
+    insert
+    into
+        product
+        (id, name, price, product_number, selling_status)
+    values
+        (default, ?, ?, ?, ?)
+2023-09-21 01:44:01.792 TRACE 16776 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [BB]
+2023-09-21 01:44:01.792 TRACE 16776 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [3500]
+2023-09-21 01:44:01.792 TRACE 16776 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [003]
+2023-09-21 01:44:01.792 TRACE 16776 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [SELLING]
+2023-09-21 01:44:01.834 DEBUG 16776 --- [           main] org.hibernate.SQL                        :
+    select
+        p.product_number
+    from
+        product p
+    order by
+        p.id desc limit 1
+2023-09-21 01:44:01.836 TRACE 16776 --- [           main] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([PRODUCT_NUMBER] : [VARCHAR]) - [003]

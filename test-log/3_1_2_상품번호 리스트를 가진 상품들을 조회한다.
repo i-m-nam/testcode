@@ -1,0 +1,58 @@
+2023-09-21 01:33:35.330 DEBUG 16704 --- [           main] org.hibernate.SQL                        :
+    insert
+    into
+        product
+        (id, name, price, product_number, selling_status)
+    values
+        (default, ?, ?, ?, ?)
+2023-09-21 01:33:35.333 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [아메리카노]
+2023-09-21 01:33:35.334 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [4000]
+2023-09-21 01:33:35.334 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [021]
+2023-09-21 01:33:35.334 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [SELLING]
+2023-09-21 01:33:35.343 DEBUG 16704 --- [           main] org.hibernate.SQL                        :
+    insert
+    into
+        product
+        (id, name, price, product_number, selling_status)
+    values
+        (default, ?, ?, ?, ?)
+2023-09-21 01:33:35.344 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [라뗴]
+2023-09-21 01:33:35.344 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1000]
+2023-09-21 01:33:35.344 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [302]
+2023-09-21 01:33:35.344 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [SELLING]
+2023-09-21 01:33:35.345 DEBUG 16704 --- [           main] org.hibernate.SQL                        :
+    insert
+    into
+        product
+        (id, name, price, product_number, selling_status)
+    values
+        (default, ?, ?, ?, ?)
+2023-09-21 01:33:35.345 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [BB]
+2023-09-21 01:33:35.345 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [3500]
+2023-09-21 01:33:35.345 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [003]
+2023-09-21 01:33:35.345 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [SELLING]
+2023-09-21 01:33:35.425 DEBUG 16704 --- [           main] org.hibernate.SQL                        :
+    select
+        productent0_.id as id1_0_,
+        productent0_.name as name2_0_,
+        productent0_.price as price3_0_,
+        productent0_.product_number as product_4_0_,
+        productent0_.selling_status as selling_5_0_
+    from
+        product productent0_
+    where
+        productent0_.product_number in (
+            ? , ?
+        )
+2023-09-21 01:33:35.427 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [302]
+2023-09-21 01:33:35.427 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [003]
+2023-09-21 01:33:35.428 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_0_] : [BIGINT]) - [2]
+2023-09-21 01:33:35.429 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_0_] : [VARCHAR]) - [라뗴]
+2023-09-21 01:33:35.430 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([price3_0_] : [INTEGER]) - [1000]
+2023-09-21 01:33:35.430 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([product_4_0_] : [VARCHAR]) - [302]
+2023-09-21 01:33:35.430 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([selling_5_0_] : [VARCHAR]) - [SELLING]
+2023-09-21 01:33:35.430 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_0_] : [BIGINT]) - [3]
+2023-09-21 01:33:35.430 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_0_] : [VARCHAR]) - [BB]
+2023-09-21 01:33:35.430 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([price3_0_] : [INTEGER]) - [3500]
+2023-09-21 01:33:35.430 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([product_4_0_] : [VARCHAR]) - [003]
+2023-09-21 01:33:35.430 TRACE 16704 --- [           main] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([selling_5_0_] : [VARCHAR]) - [SELLING]
