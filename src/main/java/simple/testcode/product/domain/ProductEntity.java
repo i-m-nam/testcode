@@ -1,6 +1,7 @@
 package simple.testcode.product.domain;
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -26,7 +27,15 @@ public class ProductEntity {
 
     private int price;
 
-    public ProductEntity(String productNumber, ProductSellingStatus sellingStatus, String name, int price) {
+//    public ProductEntity(String productNumber, ProductSellingStatus sellingStatus, String name, int price) {
+//        this.productNumber = productNumber;
+//        this.sellingStatus = sellingStatus;
+//        this.name = name;
+//        this.price = price;
+//    }
+
+    @Builder
+    private ProductEntity(String productNumber, ProductSellingStatus sellingStatus, String name, int price) {
         this.productNumber = productNumber;
         this.sellingStatus = sellingStatus;
         this.name = name;

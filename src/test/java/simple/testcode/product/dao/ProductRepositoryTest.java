@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 import simple.testcode.product.domain.ProductEntity;
+import simple.testcode.product.domain.ProductSellingStatus;
 
 import java.util.List;
 
@@ -34,9 +35,9 @@ class ProductRepositoryTest {
     @Test
     void selectQueryCheck() {
         // given
-        ProductEntity productEntityA = new ProductEntity("001", SELLING, "상품-A", 1000);
-        ProductEntity productEntityB = new ProductEntity("002", HOLD, "상품-B", 2000);
-        ProductEntity productEntityC = new ProductEntity("003", STOP, "상품-C", 5500);
+        ProductEntity productEntityA = createProduct("001", SELLING, "상품-A", 1000);
+        ProductEntity productEntityB = createProduct("002", HOLD, "상품-B", 2000);
+        ProductEntity productEntityC = createProduct("003", STOP, "상품-C", 5500);
 
         productRepository.saveAll(List.of(productEntityA, productEntityB, productEntityC));
 
@@ -58,9 +59,9 @@ class ProductRepositoryTest {
     @Test
     void findAllByProductNumberIn() {
         // given
-        ProductEntity product1 = new ProductEntity("021", SELLING, "아메리카노", 4000);
-        ProductEntity product2 = new ProductEntity("302", SELLING, "라뗴", 1000);
-        ProductEntity product3 = new ProductEntity("003", SELLING, "BB", 3500);
+        ProductEntity product1 = createProduct("021", SELLING, "아메리카노", 4000);
+        ProductEntity product2 = createProduct("302", SELLING, "라뗴", 1000);
+        ProductEntity product3 = createProduct("003", SELLING, "BB", 3500);
         productRepository.saveAll(List.of(product1, product2, product3));
 
 
@@ -83,9 +84,9 @@ class ProductRepositoryTest {
     void findLatestProductNumber() {
         // given
         String targetProductNumber = "003";
-        ProductEntity product1 = new ProductEntity("000", SELLING, "아메리카노", 4000);
-        ProductEntity product2 = new ProductEntity("001", SELLING, "라뗴", 1000);
-        ProductEntity product3 = new ProductEntity(targetProductNumber, SELLING, "BB", 3500);
+        ProductEntity product1 = createProduct("000", SELLING, "아메리카노", 4000);
+        ProductEntity product2 = createProduct("001", SELLING, "라뗴", 1000);
+        ProductEntity product3 = createProduct(targetProductNumber, SELLING, "BB", 3500);
         // 순차적으로 저장 될 것
         productRepository.saveAll(List.of(product1, product2, product3));
 
@@ -98,4 +99,12 @@ class ProductRepositoryTest {
         assertThat(latestProductNumber).isEqualTo(targetProductNumber);
     }
 
+    private static ProductEntity createProduct(String productNumber, ProductSellingStatus sellingStatus, String name, int price) {
+        return ProductEntity.builder()
+                .productNumber(productNumber)
+                .sellingStatus(sellingStatus)
+                .name(name)
+                .price(price)
+                .build();
+    }
 }
