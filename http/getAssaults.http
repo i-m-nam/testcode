@@ -1,0 +1,2 @@
+### 카오스멍키 현재 활성화된 공격 확인
+GET localhost:8080/actuator/chaosmonkey/assaults

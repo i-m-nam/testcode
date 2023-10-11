@@ -1,0 +1,3 @@
+### 카오스멍키 상태 활성화 시키기
+POST http://localhost:8080/actuator/chaosmonkey/enable
+Content-Type: application/json

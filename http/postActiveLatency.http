@@ -1,0 +1,10 @@
+### 카오스멍키 지연 공격 설정
+POST http://localhost:8080/actuator/chaosmonkey/assaults
+Content-Type: application/json
+
+{
+  "level": 3,
+  "latencyRangeStart": 2000,
+  "latencyRangeEnd": 5000,
+  "latencyActive": true
+}

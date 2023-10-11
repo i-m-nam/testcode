@@ -15,3 +15,36 @@ logging:
   level:
     org.hibernate.SQL: debug
     org.hibernate.type: trace
+
+---
+spring:
+  config:
+    activate:
+      on-profile: chaos-monkey
+  datasource:
+    url: jdbc:postgresql://localhost:5432/study
+    username: study
+    password: study
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
+management:
+  endpoint:
+    chaosmonkey:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,info,chaosmonkey
+chaos:
+  monkey:
+    watcher:
+      repository: true

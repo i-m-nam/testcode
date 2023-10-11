@@ -1,0 +1,2 @@
+### 카오스멍키 와처 상태 조회
+GET localhost:8080/actuator/chaosmonkey/watchers
