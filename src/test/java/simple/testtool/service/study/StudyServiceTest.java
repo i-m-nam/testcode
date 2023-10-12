@@ -43,10 +43,15 @@ class StudyServiceTest {
 //    @Value("${container.port}")
 //    int port;
 
-//    @Container
-//    static DockerComposeContainer composeContainer =
-//            new DockerComposeContainer(new File("src/test/resources/docker-compose.yml"))
-//                    .withExposedService("study-db", 5432);
+
+    /**
+     * 3. docker compose 를 이용하여 컨테이너 테스트하기
+     */
+
+    @Container
+    static DockerComposeContainer composeContainer =
+            new DockerComposeContainer(new File("src/test/resources/docker-compose.yml"))
+                    .withExposedService("study-db", 5432);
 
 
     /**
@@ -75,27 +80,27 @@ class StudyServiceTest {
     /**
      * 선언적으로 컨테이너 관리
      */
-    @Container
-    static PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer()
-            .withDatabaseName("studytest");
+//    @Container
+//    static PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer()
+//            .withDatabaseName("studytest");
 //            .withExposedPorts(5432)
 //            .withEnv("POSTGRES_DB", "studytest");
 
-    @BeforeAll //이렇게 하면 도커 안에 로그를 볼 수 있음
-    static void beforeAll() {
-        Slf4jLogConsumer logConsumer = new Slf4jLogConsumer(log);
-        postgreSQLContainer.followOutput(logConsumer); //둘 중에 하나만 써도 됨
+//    @BeforeAll //이렇게 하면 도커 안에 로그를 볼 수 있음
+//    static void beforeAll() {
+//        Slf4jLogConsumer logConsumer = new Slf4jLogConsumer(log);
+//        postgreSQLContainer.followOutput(logConsumer); //둘 중에 하나만 써도 됨
+//
+//    }
 
-    }
-
-    @BeforeEach
-    void beforeEach() {
-//        System.out.println("=================");
-//        System.out.println(postgreSQLContainer.getMappedPort(5432));
-//        System.out.println(postgreSQLContainer.getLogs()); //이렇게 하면 각 테스트 마다 도커 로그를 볼 수 있음, 둘 중에 하나만 써도 됨
-
-        studyRepository.deleteAll();
-    }
+//    @BeforeEach
+//    void beforeEach() {
+////        System.out.println("=================");
+////        System.out.println(postgreSQLContainer.getMappedPort(5432));
+////        System.out.println(postgreSQLContainer.getLogs()); //이렇게 하면 각 테스트 마다 도커 로그를 볼 수 있음, 둘 중에 하나만 써도 됨
+//
+//        studyRepository.deleteAll();
+//    }
 
 
     @Test
