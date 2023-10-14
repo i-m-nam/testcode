@@ -101,7 +101,7 @@ class ProductRepositoryTest {
         assertThat(latestProductNumber).isEqualTo(targetProductNumber);
     }
 
-    private static ProductEntity createProduct(String productNumber, ProductSellingStatus sellingStatus, String name, int price) {
+    private ProductEntity createProduct(String productNumber, ProductSellingStatus sellingStatus, String name, int price) {
         return ProductEntity.builder()
                 .productNumber(productNumber)
                 .sellingStatus(sellingStatus)

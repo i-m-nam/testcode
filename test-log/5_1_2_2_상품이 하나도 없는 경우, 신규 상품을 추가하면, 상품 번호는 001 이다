@@ -1,0 +1,44 @@
+2023-10-13 18:25:21.599 DEBUG 33424 --- [           main] org.hibernate.SQL                        :
+    delete
+    from
+        order_product
+2023-10-13 18:25:21.608 DEBUG 33424 --- [           main] org.hibernate.SQL                        :
+    delete
+    from
+        product
+2023-10-13 18:25:21.610 DEBUG 33424 --- [           main] org.hibernate.SQL                        :
+    delete
+    from
+        orders
+2023-10-13 18:25:21.639 DEBUG 33424 --- [           main] org.hibernate.SQL                        :
+    select
+        p.product_number
+    from
+        product p
+    order by
+        p.id desc limit 1
+2023-10-13 18:25:21.657 DEBUG 33424 --- [           main] org.hibernate.SQL                        :
+    insert
+    into
+        product
+        (id, name, price, product_number, selling_status)
+    values
+        (default, ?, ?, ?, ?)
+2023-10-13 18:25:21.659 TRACE 33424 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [카푸치노]
+2023-10-13 18:25:21.659 TRACE 33424 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [5700]
+2023-10-13 18:25:21.659 TRACE 33424 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [001]
+2023-10-13 18:25:21.659 TRACE 33424 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [SELLING]
+2023-10-13 18:25:21.717 DEBUG 33424 --- [           main] org.hibernate.SQL                        :
+    select
+        productent0_.id as id1_2_,
+        productent0_.name as name2_2_,
+        productent0_.price as price3_2_,
+        productent0_.product_number as product_4_2_,
+        productent0_.selling_status as selling_5_2_
+    from
+        product productent0_
+2023-10-13 18:25:21.719 TRACE 33424 --- [           main] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_2_] : [BIGINT]) - [1]
+2023-10-13 18:25:21.720 TRACE 33424 --- [           main] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name2_2_] : [VARCHAR]) - [카푸치노]
+2023-10-13 18:25:21.720 TRACE 33424 --- [           main] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([price3_2_] : [INTEGER]) - [5700]
+2023-10-13 18:25:21.720 TRACE 33424 --- [           main] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([product_4_2_] : [VARCHAR]) - [001]
+2023-10-13 18:25:21.721 TRACE 33424 --- [           main] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([selling_5_2_] : [VARCHAR]) - [SELLING]
