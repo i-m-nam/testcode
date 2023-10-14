@@ -5,17 +5,17 @@ import simple.testcode.product.domain.ProductEntity;
 import simple.testcode.product.domain.ProductSellingStatus;
 
 /**
- * 상품 서비스 요청 전용 vo
+ * 상품 서비스 전용 vo
  * service layer 전용, 책임 분리, 의존성 분리, 확장 용이성
  */
-public class ProductServiceRequestVo {
+public class ProductServiceVo {
 
     private ProductSellingStatus sellingStatus;
     private String name;
     private int price;
 
     @Builder
-    private ProductServiceRequestVo(ProductSellingStatus sellingStatus, String name, int price) {
+    private ProductServiceVo(ProductSellingStatus sellingStatus, String name, int price) {
         this.sellingStatus = sellingStatus;
         this.name = name;
         this.price = price;

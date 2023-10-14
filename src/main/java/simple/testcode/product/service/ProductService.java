@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import simple.testcode.product.dao.ProductRepository;
 import simple.testcode.product.domain.ProductEntity;
-import simple.testcode.product.dto.ProductServiceRequestVo;
+import simple.testcode.product.dto.ProductServiceVo;
 import simple.testcode.product.dto.ProductResponse;
 
 @Transactional(readOnly = true)
@@ -17,10 +17,10 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     @Transactional
-    public ProductResponse createProduct(ProductServiceRequestVo productCreateServiceRequestVo) {
+    public ProductResponse createProduct(ProductServiceVo productCreateServiceVo) {
         String nextProductNumber = this.createNextProductNumber();
 
-        ProductEntity product = productCreateServiceRequestVo.toEntity(nextProductNumber);
+        ProductEntity product = productCreateServiceVo.toEntity(nextProductNumber);
         ProductEntity savedProduct = productRepository.save(product);
 
         return ProductResponse.of(savedProduct);

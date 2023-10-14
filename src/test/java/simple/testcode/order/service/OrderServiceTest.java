@@ -5,10 +5,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import simple.testcode.order.dao.OrderRepository;
-import simple.testcode.order.dto.OrderServiceRequestVo;
+import simple.testcode.order.dto.OrderServiceVo;
 import simple.testcode.order.dto.OrderResponse;
-import simple.testcode.orderproduct.dao.OrderProductRepository;
 import simple.testcode.product.dao.ProductRepository;
 import simple.testcode.product.domain.ProductEntity;
 import simple.testcode.product.domain.ProductSellingStatus;
@@ -40,7 +38,7 @@ class OrderServiceTest {
 
         productRepository.saveAll(List.of(product1, product2, product3));
 
-        OrderServiceRequestVo request = OrderServiceRequestVo.builder()
+        OrderServiceVo request = OrderServiceVo.builder()
                 .productNumbers(List.of("001", "002"))
                 .build();
 

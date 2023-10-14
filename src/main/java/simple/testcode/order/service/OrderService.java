@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import simple.testcode.order.dao.OrderRepository;
 import simple.testcode.order.domain.OrderEntity;
-import simple.testcode.order.dto.OrderServiceRequestVo;
+import simple.testcode.order.dto.OrderServiceVo;
 import simple.testcode.order.dto.OrderResponse;
 import simple.testcode.product.dao.ProductRepository;
 import simple.testcode.product.domain.ProductEntity;
@@ -24,10 +24,10 @@ public class OrderService {
     private final OrderRepository orderRepository;
 
     @Transactional
-    public OrderResponse createOrder(OrderServiceRequestVo orderCreateServiceRequestVo, LocalDateTime registeredDateTime) {
+    public OrderResponse createOrder(OrderServiceVo orderCreateServiceVo, LocalDateTime registeredDateTime) {
 
         // Product
-        List<String> productNumbers = orderCreateServiceRequestVo.getProductNumbers();
+        List<String> productNumbers = orderCreateServiceVo.getProductNumbers();
         List<ProductEntity> products = findProductsBy(productNumbers);
 
         // Order

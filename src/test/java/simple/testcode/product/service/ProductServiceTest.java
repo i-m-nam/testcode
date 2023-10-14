@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import simple.testcode.product.dao.ProductRepository;
 import simple.testcode.product.domain.ProductEntity;
 import simple.testcode.product.domain.ProductSellingStatus;
-import simple.testcode.product.dto.ProductServiceRequestVo;
+import simple.testcode.product.dto.ProductServiceVo;
 import simple.testcode.product.dto.ProductResponse;
 
 import java.util.List;
@@ -29,7 +29,7 @@ class ProductServiceTest {
         ProductEntity product1 = createProduct("001", ProductSellingStatus.SELLING, "아메리카노", 4000);
         productRepository.save(product1);
 
-        ProductServiceRequestVo request = ProductServiceRequestVo.builder()
+        ProductServiceVo request = ProductServiceVo.builder()
                 .sellingStatus(ProductSellingStatus.SELLING)
                 .name("카푸치노")
                 .price(5700)
@@ -58,10 +58,10 @@ class ProductServiceTest {
     @DisplayName("상품이 하나도 없는 경우, 신규 상품을 추가하면, 상품 번호는 001 이다.")
     @Test
     void createProductWhenProductsIsEmpty() {
+        // 기존의 product 데이터 있다면 지우기
         clearData();
         // given
-        // 기존의 product 데이터 있다면 지우기 (AfterEach 에서 구현함)
-        ProductServiceRequestVo request = ProductServiceRequestVo.builder()
+        ProductServiceVo request = ProductServiceVo.builder()
                 .sellingStatus(ProductSellingStatus.SELLING)
                 .name("카푸치노")
                 .price(5700)
