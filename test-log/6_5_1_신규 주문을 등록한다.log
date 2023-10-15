@@ -1,0 +1,37 @@
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/orders/new
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"26"]
+             Body = {"productNumbers":["001"]}
+    Session Attrs = {}
+
+Handler:
+             Type = simple.testcode.order.controller.OrderController
+           Method = simple.testcode.order.controller.OrderController#createOrder(OrderRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"code":200,"status":"OK","message":"OK","data":null}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
