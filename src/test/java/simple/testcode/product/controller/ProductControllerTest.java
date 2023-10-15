@@ -14,6 +14,7 @@ import simple.testcode.product.dto.ProductRequest;
 import simple.testcode.product.service.ProductService;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(controllers = ProductController.class)
@@ -48,5 +49,34 @@ class ProductControllerTest {
                 )
                 .andDo(print()) // log 기록
                 .andExpect(status().isOk());
+    }
+
+    // 파라미터 유효성 검사 테스트
+    @DisplayName("신규 상품을 등록할 때, 상품 타입은 필수값이다.")
+    @Test
+    void createProductWithoutType() throws Exception {
+        // given
+        ProductRequest request = ProductRequest.builder()
+                // .sellingStatus(ProductSellingStatus.SELLING) // 상품 판매상태 를 요청 파라미터에 넣지 않음
+                .name("아메리카노")
+                .price(4000)
+                .build();
+
+
+        // when && // then
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/products/new")
+                        .content(objectMapper.writeValueAsString(request))
+                        .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andDo(print())
+                // 간단 버전
+                // .andExpect(status().isBadRequest());
+                // 상세 버전
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.code").value("400"))
+                .andExpect(jsonPath("$.status").value("BAD_REQUEST"))
+                .andExpect(jsonPath("$.message").value("상품 판매상태는 필수입니다."))
+                .andExpect(jsonPath("$.data").isEmpty());
+
     }
 }

@@ -1,4 +1,4 @@
-package simple.testcode.common.dto;
+package simple.testcode.common.controller;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
