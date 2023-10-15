@@ -1,0 +1,37 @@
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/v1/products/new
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"60"]
+             Body = {"sellingStatus":null,"name":"아메리카노","price":4000}
+    Session Attrs = {}
+
+Handler:
+             Type = simple.testcode.product.controller.ProductController
+           Method = simple.testcode.product.controller.ProductController#createProduct(ProductRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.web.bind.MethodArgumentNotValidException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"code":400,"status":"BAD_REQUEST","message":"상품 판매상태는 필수입니다.","data":null}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []

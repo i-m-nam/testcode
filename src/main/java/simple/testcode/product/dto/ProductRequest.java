@@ -1,7 +1,9 @@
 package simple.testcode.product.dto;
 
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import simple.testcode.product.domain.ProductSellingStatus;
 
 import javax.validation.constraints.NotBlank;
@@ -9,6 +11,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ProductRequest {
 
     @NotNull(message = "상품 판매상태는 필수입니다.")
