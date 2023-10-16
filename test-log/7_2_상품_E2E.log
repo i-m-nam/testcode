@@ -1,0 +1,18 @@
+2023-10-16 13:45:08.735 DEBUG 97112 --- [           main] org.hibernate.SQL                        :
+    select
+        p.product_number
+    from
+        product p
+    order by
+        p.id desc limit 1
+2023-10-16 13:45:08.765 DEBUG 97112 --- [           main] org.hibernate.SQL                        :
+    insert
+    into
+        product
+        (id, name, price, product_number, selling_status)
+    values
+        (default, ?, ?, ?, ?)
+2023-10-16 13:45:08.766 TRACE 97112 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [콜드브루라떼]
+2023-10-16 13:45:08.766 TRACE 97112 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [4000]
+2023-10-16 13:45:08.766 TRACE 97112 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [001]
+2023-10-16 13:45:08.766 TRACE 97112 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [SELLING]
