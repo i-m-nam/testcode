@@ -33,10 +33,8 @@ public class OrderEndToEndTest {
 
     ProductRequest productRequest;
 
-    String productNumber;
-
     @BeforeEach
-    void setPRoductData() {
+    void setProductData() {
         productRequest = ProductRequest.builder()
                 .sellingStatus(ProductSellingStatus.SELLING)
                 .name("카페라떼")

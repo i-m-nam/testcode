@@ -1,0 +1,52 @@
+PlainControllerTest 의 테스트 전용 로그 정보는 없음
+
+### Http Client plugin [테스트_코드_ 작성_ 방법.http] 의 로그 작성함
+POST http://localhost:8080/api/v1/products/new
+
+HTTP/1.1 200
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 16 Oct 2023 10:45:11 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+  "code": 200,
+  "status": "OK",
+  "message": "OK",
+  "data": {
+    "id": 1,
+    "productNumber": "001",
+    "sellingStatus": "HOLD",
+    "name": "카푸치노",
+    "price": 5000
+  }
+}
+Response file saved.
+> 2023-10-16T194511.200.json
+
+Response code: 200; Time: 163ms (163 ms); Content length: 129 bytes (129 B)
+
+Cookies are preserved between requests:
+> /testcode/.idea/httpRequests/http-client.cookies
+
+
+
+
+
+GET http://localhost:8080/api/v1/plain/check-header
+
+HTTP/1.1 200
+Set-Cookie: JSESSIONID=FE59571A256E97FB41F902E20591D07E; Path=/; HttpOnly
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 15
+Date: Mon, 16 Oct 2023 10:45:15 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+this_is_DEV_env
+
+Response code: 200; Time: 22ms (22 ms); Content length: 15 bytes (15 B)
+
+Cookies are preserved between requests:
+> /testcode/.idea/httpRequests/http-client.cookies
